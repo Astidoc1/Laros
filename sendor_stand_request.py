@@ -2,6 +2,7 @@
 import configuration
 import requests
 import data
+
 # Автотест
 def test_order_creation_and_retrieval():
     response = create_order_request(data.order_body)
@@ -11,8 +12,9 @@ def test_order_creation_and_retrieval():
     order_response = get_order_request(track_number)
     assert order_response.status_code == 200, f"Ошибка: {order_response.status_code}"
     order_data = order_response.json()
-    print("Данные заказа:")
-    print(order_data)
+
+# Далее вывод данных   
+
 # Создание заказа
 def create_order_request(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREAT_ORDERS,
